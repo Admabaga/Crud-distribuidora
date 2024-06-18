@@ -4,6 +4,7 @@ include("../BD/Conexion.php");
 $tipoDeUsuario = new registrarTipoUsuario();
 $tipoDeUsuario ->crearTipoUsuarioEnDb($conexion);
 $tipoDeUsuario ->traerTipoUsuario($conexion);
+$tipoDeUsuario ->eliminarTipoUsuario($conexion);
 
 class registrarTipoUsuario{
     public function crearTipoUsuarioEnDb($conexion){
@@ -58,5 +59,26 @@ class registrarTipoUsuario{
         }
         echo $output;
    
+    }
+    public function eliminarTipoUsuario($conexion) {
+        $consulta = "";
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Eliminar':
+                    $idTipousuario = trim($_POST["idTipoUsuarioEliminar"]); 
+                    $consulta = "DELETE FROM TipoUsuario WHERE  idTipoUsuario = '$idTipousuario'";
+                    $resultado = mysqli_query($conexion, $consulta);
+                        if ($resultado === TRUE) {
+                            echo "Tipo de usuario eliminado!";
+                        } else {
+                            die("No se puede eliminar el tipo de usuario". $conexion->error);
+                                }
+                    break;
+                    default:
+                    break;   
+  
+            }
+        }
+
     }
 }

@@ -5,6 +5,7 @@ include("../BD/Conexion.php");
 $producto = new Producto();
 $producto->crearProductoEnDb($conexion);
 $producto->traerProductos($conexion);
+$producto->eliminarProducto($conexion);
 class Producto {
     public function crearProductoEnDb($conexion) {
         if(isset($_POST["boton"])){
@@ -84,6 +85,27 @@ class Producto {
         }
         echo $output;
    
+    }
+    public function eliminarProducto($conexion) {
+        $consulta = "";
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Eliminar':
+                    $idProducto = trim($_POST["idProductoEliminar"]); 
+                    $consulta = "DELETE FROM producto WHERE  idProducto = '$idProducto'";
+                    $resultado = mysqli_query($conexion, $consulta);
+                        if ($resultado === TRUE) {
+                            echo "Producto eliminado!";
+                        } else {
+                            die("No se puede eliminar el producto". $conexion->error);
+                                }
+                    break;
+                    default:
+                    break;   
+  
+            }
+        }
+
     }
 
 }

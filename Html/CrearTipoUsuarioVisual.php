@@ -7,6 +7,12 @@
 </head>
 <body>
     <form action="" method="post">
+    <div class="buscarUsuarioId">
+            <input type="number" name="idTipoUsuarioEliminar" placeholder="Ingrese id tipo de usuario">
+            <br><br>
+            <input type="submit" name="boton" value="Eliminar">
+            <br><br>
+    </div>
     <div class="buscarVentaId">
             <input type="number" name="idTipoUsuario" placeholder="Ingrese el tipo usuario">
             <br><br>

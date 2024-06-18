@@ -4,6 +4,8 @@ include("../BD/Conexion.php");
 $proveedor = new Proveedor();
 $proveedor->crearProveedorEnDb($conexion);
 $proveedor->traerProveedores($conexion);
+$proveedor->eliminarProveedor($conexion);
+
 class Proveedor {
     public function crearProveedorEnDb($conexion) {
         if(isset($_POST["boton"])){
@@ -74,6 +76,29 @@ class Proveedor {
         }
         echo $output;
    
+    }
+
+    
+    public function eliminarProveedor($conexion) {
+        $consulta = "";
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Eliminar':
+                    $idProveedor = trim($_POST["idProveedorEliminar"]); 
+                    $consulta = "DELETE FROM proveedor WHERE  idProveedor = '$idProveedor'";
+                    $resultado = mysqli_query($conexion, $consulta);
+                        if ($resultado === TRUE) {
+                            echo "Proveedor eliminado!";
+                        } else {
+                            die("No se puede eliminar el proveedor". $conexion->error);
+                                }
+                    break;
+                    default:
+                    break;   
+  
+            }
+        }
+
     }
 
 }

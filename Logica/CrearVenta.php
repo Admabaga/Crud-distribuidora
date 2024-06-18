@@ -5,6 +5,8 @@ include("../BD/Conexion.php");
 $venta = new Venta();
 $venta->crearVentaEnDb($conexion);
 $venta->traerVentas($conexion);
+$venta->eliminarVenta($conexion);
+
 class Venta {
     public function crearVentaEnDb($conexion) {
         if(isset($_POST["boton"])){
@@ -88,6 +90,27 @@ class Venta {
         }
         echo $output;
    
+    }
+    public function eliminarVenta($conexion) {
+        $consulta = "";
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Eliminar':
+                    $idVenta = trim($_POST["idVentaEliminar"]); 
+                    $consulta = "DELETE FROM venta WHERE  idVenta = '$idVenta'";
+                    $resultado = mysqli_query($conexion, $consulta);
+                        if ($resultado === TRUE) {
+                            echo "Venta eliminada!";
+                        } else {
+                            die("No se puede eliminar la venta". $conexion->error);
+                                }
+                    break;
+                    default:
+                    break;   
+  
+            }
+        }
+
     }
 
 }

@@ -6,6 +6,7 @@ include("../BD/Conexion.php");
 $factura = new Factura();
 $factura->crearFacturaEnDb($conexion);
 $factura->traerFacturas($conexion);
+$factura->eliminarFactura($conexion);
 
 class Factura{
     public function crearFacturaEnDb($conexion){
@@ -76,6 +77,28 @@ class Factura{
         }
         echo $output;
    
+    }
+
+    public function eliminarFactura($conexion) {
+        $consulta = "";
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Eliminar':
+                    $idFactura = trim($_POST["idFacturaEliminar"]); 
+                    $consulta = "DELETE FROM factura WHERE  idFactura = '$idFactura'";
+                    $resultado = mysqli_query($conexion, $consulta);
+                        if ($resultado === TRUE) {
+                            echo "Factura eliminada!";
+                        } else {
+                            die("No se puede eliminar la factura". $conexion->error);
+                                }
+                    break;
+                    default:
+                    break;   
+  
+            }
+        }
+
     }
 }
 

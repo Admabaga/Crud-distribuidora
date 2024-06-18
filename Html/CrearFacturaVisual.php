@@ -7,6 +7,12 @@
 </head>
 <body>
     <form action="" method="post">
+    <div class="buscarUsuarioId">
+            <input type="number" name="idFacturaEliminar" placeholder="Ingrese numero factura">
+            <br><br>
+            <input type="submit" name="boton" value="Eliminar">
+            <br><br>
+    </div>
     <div class="buscarVentaId">
             <input type="number" name="idFactura" placeholder="Ingrese id de factura">
             <br><br>
