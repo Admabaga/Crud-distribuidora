@@ -35,7 +35,9 @@ class Venta {
                             ('$producto','$vendedor','$cliente','$cantidad','$precioProducto','$total','$factura')";
                             $resultado = mysqli_query($conexion, $sql);
                             if ($resultado === TRUE) {
-                                echo "Venta registrada!";
+                                echo "<script>
+                                alert('Venta registrada!');
+                                </script>";
                             } else {
                                 die("No se puede registrar venta". $conexion->error);
                                     }
@@ -105,7 +107,9 @@ class Venta {
                     $consulta = "DELETE FROM venta WHERE  idVenta = '$idVenta'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Venta eliminada!";
+                            echo "<script>
+                            alert('Venta eliminada!');
+                            </script>";
                         } else {
                             die("No se puede eliminar la venta". $conexion->error);
                                 }

@@ -1,11 +1,52 @@
 body{
- /* background-image: url('../Img/sweden-2731126_1280.jpg');*/
+  background-image: url('../Img/sweden-2731126_1280.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #ccc;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;
  }
 
  nav {
+  display: flex;
+ }
+ .navbar {
+  
+  background-color: #7c6c6c; 
+  overflow-x: hidden;
+  margin-bottom: 10px;
+ }
+
+ .navbar ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 15px;
+  list-style-type: none; 
+  margin: 10px; 
+  padding: 15px; 
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px;
+  width: 100%;
+}
+
+
+.navbar li a:hover {
+  color: #a39906; 
+  background-color: #413a3a;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav {
   margin-top: 150px;
  }
 
@@ -14,8 +55,8 @@ body{
   justify-content: space-around;
   background-color: #7c6c6c;
   height: 30px;
-  list-style-type: none; /* Elimina los marcadores predeterminados */
-  margin: 0px; /* Remueve los márgenes predeterminados */
+  list-style-type: none; 
+  margin: 0px; 
   padding: 23px; 
 }
 
@@ -44,7 +85,7 @@ body{
   }
 }
 
-/* Estilos generales */
+
 main {
     display: flex;
     flex-direction: column-reverse;
@@ -53,7 +94,7 @@ main {
 
 form {
     width: 100%;
-    max-width: 600px; /* Ajusta según sea necesario */
+    max-width: 650px; 
 }
 
 
@@ -61,8 +102,9 @@ form {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 20px; /* Espacio entre grupos de inputs */
+    margin-bottom: 20px; 
     border-radius: 5%;
+    width: 90%;
 
 }
 
@@ -71,8 +113,8 @@ input[type="number"], input[type="text"], input[type="email"], input[type="passw
     padding: 10px;
     border: 1px solid #ccc;
     width: 230px;
-    border-radius: 5px;
-    margin-right: 15px; /* Espacio entre inputs en el mismo grupo */
+    border-radius: 6px;
+    margin-right: 15px; 
 }
 
 input[type="submit"] {
@@ -93,12 +135,12 @@ table {
   width: auto; 
   margin-left: 25%;
   margin-bottom: 10%;
-  background-color: #333; /* Fondo oscuro para toda la tabla */
-  color: #fff; /* Texto blanco sobre el fondo oscuro */
+  background-color: #333; 
+  color: #fff; 
 }
 
 th, td {
-  border: 2px solid #3b3b3b; /* Borde oscuro */
+  border: 2px solid #3b3b3b; 
   padding: 8px;
   text-align: left;
 }
@@ -122,5 +164,3 @@ h2 {
     color: #bebcbc; 
     line-height: 1.5; 
   }
-
-

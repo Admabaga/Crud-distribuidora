@@ -18,7 +18,9 @@ class Factura{
                                     (NOW())";
                         $resultado = mysqli_query($conexion, $sql);
                         if ($resultado === TRUE) {
-                        echo "Factura  ingresada!";
+                            echo "<script>
+                            alert('Factura registrada!');
+                            </script>";
                         } else {
                                 die("No se puede crear la factura.". $conexion->error);
                                 }
@@ -86,7 +88,9 @@ class Factura{
                     $consulta = "DELETE FROM factura WHERE  idFactura = '$idFactura'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Factura eliminada!";
+                            echo "<script>
+                            alert('Factura eliminada!');
+                            </script>";
                         } else {
                             die("No se puede eliminar la factura". $conexion->error);
                                 }

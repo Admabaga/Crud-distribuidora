@@ -36,7 +36,9 @@ class Usuario {
                          '$fkTipoUsuario')";
                         $resultado = mysqli_query($conexion, $sql);
                         if ($resultado === TRUE) {
-                            echo "Usuario registrado!";
+                            echo "<script>
+                            alert('Usuario registrado!');
+                            </script>";
                         } else {
                             die("No se puede registrar usuario". $conexion->error);
                                 }
@@ -98,7 +100,10 @@ class Usuario {
                     $consulta = "DELETE FROM usuario WHERE  identificacion = '$idUsuario'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Usuario eliminado!";
+                            echo "<script>
+					alert('Usuario eliminado!');
+					</script>";
+
                         } else {
                             die("No se puede eliminar el usuario". $conexion->error);
                                 }

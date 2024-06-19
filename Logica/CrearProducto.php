@@ -30,7 +30,9 @@ class Producto {
                             '$fkProveedor')";
                             $resultado = mysqli_query($conexion, $sql);
                             if ($resultado === TRUE) {
-                                echo "Producto registrado!";
+                                echo "<script>
+                                alert('Producto registrado!');
+                                </script>";
                             } else {
                                 die("No se puede registrar producto". $conexion->error);
                                     }
@@ -95,7 +97,9 @@ class Producto {
                     $consulta = "DELETE FROM producto WHERE  idProducto = '$idProducto'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Producto eliminado!";
+                            echo "<script>
+                            alert('Producto eliminado!');
+                            </script>";
                         } else {
                             die("No se puede eliminar el producto". $conexion->error);
                                 }

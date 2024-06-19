@@ -18,7 +18,9 @@ class registrarTipoUsuario{
                              ('$tipoUsuario')";
                             $resultado = mysqli_query($conexion, $sql);
                             if ($resultado === TRUE) {
-                                echo "Tipo usuario ingresado!";
+                                echo "<script>
+                                alert('Tipo usuario agregado!');
+                                </script>";
                             } else {
                                 die("No se puede crear el tipo de usuario.". $conexion->error);
                                     }
@@ -69,7 +71,9 @@ class registrarTipoUsuario{
                     $consulta = "DELETE FROM TipoUsuario WHERE  idTipoUsuario = '$idTipousuario'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Tipo de usuario eliminado!";
+                            echo "<script>
+                            alert('Tipo usuario eliminado!');
+                            </script>";
                         } else {
                             die("No se puede eliminar el tipo de usuario". $conexion->error);
                                 }

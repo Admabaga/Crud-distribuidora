@@ -17,7 +17,9 @@ class registrarCategoria{
                         ('$categoriaNombre')";
                         $resultado = mysqli_query($conexion, $sql);
                         if ($resultado === TRUE) {
-                        echo "Categoria  ingresada!";
+                            echo "<script>
+                            alert('Categoria registrada!');
+                            </script>";
                         } else {
                             die("No se puede crear la categoria.". $conexion->error);
                                 }
@@ -70,7 +72,9 @@ class registrarCategoria{
                     $consulta = "DELETE FROM categoria WHERE  idCategoria = '$idCategoria'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Categoria eliminada!";
+                            echo "<script>
+                            alert('Categoria eliminada!');
+                            </script>";
                         } else {
                             die("No se puede eliminar la categoria". $conexion->error);
                                 }

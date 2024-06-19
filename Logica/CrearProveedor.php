@@ -27,7 +27,9 @@ class Proveedor {
                             ,'$telefonoProveedor')";
                             $resultado = mysqli_query($conexion, $sql);
                             if ($resultado === TRUE) {
-                                echo "Proveedor registrado!";
+                                echo "<script>
+                                alert('Proveedor registrado!');
+                                </script>";
                             } else {
                                 die("No se puede registrar proveedor". $conexion->error);
                                     }
@@ -88,7 +90,9 @@ class Proveedor {
                     $consulta = "DELETE FROM proveedor WHERE  idProveedor = '$idProveedor'";
                     $resultado = mysqli_query($conexion, $consulta);
                         if ($resultado === TRUE) {
-                            echo "Proveedor eliminado!";
+                            echo "<script>
+                            alert('Proveedor eliminado!');
+                            </script>";
                         } else {
                             die("No se puede eliminar el proveedor". $conexion->error);
                                 }
