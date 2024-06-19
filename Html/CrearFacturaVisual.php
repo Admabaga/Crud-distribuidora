@@ -21,13 +21,11 @@
 <main>
     <form action="" method="post">
     <div class="input-group">
-        <div class="RegistrarFactura">
+         <div class="RegistrarFactura">
             <h2>Crear factura:</h>
             <br>
-            <input type="number" name="fkVenta" placeholder="Ingrese la venta">
-            <br><br>
-            <input type="submit" name="boton" value="Guardar">
-
+            <br>
+            <input type="submit" name="boton" value="Crear factura">
         </div>
         <div class="ActualizarFactura">
             <h2>Actualizar factura:</h>
@@ -37,11 +35,8 @@
             <input type="date" name="actualizarFecha" id="">
             <br><br>
             <input type="submit" value="Actualizar">
-
         </div>
-
     </div>
-
 
     <div class="input-group">
         <div class="EliminarFactura">

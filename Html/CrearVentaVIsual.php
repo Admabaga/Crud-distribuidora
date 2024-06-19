@@ -21,7 +21,7 @@
 <main>
     <form action="" method="post">
     <div class="input-group">
-        <div class="RegistroVenta">
+           <div class="RegistroVenta">
             <h2>Registrar venta:</h2>
             <br>
             <input type="number" name="fkProducto" placeholder="Ingrese el producto">
@@ -31,6 +31,8 @@
             <input type="number" name="fkCLiente" placeholder="Ingrese identificacion del cliente">
             <br><br>
             <input type="number" name="cantidad" placeholder="Ingrese cantidad del producto">
+            <br><br>
+            <input type="number" name="fkFactura" placeholder="Ingrese numero factura">
             <br><br>
             <input type="submit" name="boton" value="Registrar">
         </div>
@@ -46,6 +48,8 @@
             <input type="number" name="actualizarCantidad" placeholder="Ingrese cantidad">
             <br><br>
             <input type="number" name="actualizarProducto" placeholder="Ingrese producto">
+            <br><br>
+            <input type="number" name="actualizarFactura" placeholder="Ingrese factura">
             <br><br>
             <input type="submit" value="Actualizar">
 

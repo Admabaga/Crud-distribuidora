@@ -12,19 +12,16 @@ class Factura{
     public function crearFacturaEnDb($conexion){
         if(isset($_POST["boton"])){
             switch($_POST["boton"]){
-                case 'Guardar':
-                    if(strlen(trim($_POST["fkVenta"])) >= 1 ){
-                        $venta = trim($_POST["fkVenta"]);
+                case 'Crear factura':
                         $sql = "INSERT INTO factura
-                                    (fkVenta, fecha) VALUES
-                                    ('$venta', NOW())";
+                                    ( fecha) VALUES
+                                    (NOW())";
                         $resultado = mysqli_query($conexion, $sql);
                         if ($resultado === TRUE) {
                         echo "Factura  ingresada!";
                         } else {
                                 die("No se puede crear la factura.". $conexion->error);
                                 }
-                    }
                 }
         }
 
@@ -35,7 +32,7 @@ class Factura{
                v.idVenta AS id_venta, v.fkCLiente AS Cliente,  v.fkVendedor AS Vendedor, v.fkProducto AS id_producto,
                 v.cantidad AS cantidad_venta, v.valorTotal AS valor_Total,v.valorUnitario AS valor_Unitario
         FROM factura f
-        LEFT JOIN venta v ON f.fkVenta = v.idVenta
+        LEFT JOIN venta v ON f.idFactura = v.fkFactura
         ORDER BY f.fecha DESC
     ";
         if(isset($_POST["boton"])){
@@ -46,9 +43,10 @@ class Factura{
                                 v.idVenta AS id_venta, v.fkCLiente AS Cliente,  v.fkVendedor AS Vendedor, v.fkProducto AS id_producto,
                                 v.cantidad AS cantidad_venta, v.valorTotal AS valor_Total,v.valorUnitario AS valor_Unitario
                                 FROM factura f
-                                LEFT JOIN venta v ON f.fkVenta = v.idVenta
+                                LEFT JOIN venta v ON f.idFactura = v.fkFactura
+                                WHERE f.idFactura = '$idFactura'
                                 ORDER BY f.fecha DESC
-                                 WHERE f.idFactura = '$idFactura'";
+                                ";
                     break;
             default:
             break;   

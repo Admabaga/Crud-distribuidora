@@ -4,7 +4,7 @@ $server = "localhost";
 
 $user = "root";
 $pass = "";
-$db = "distribuidora";
+$db = "distribuidoraCesde";
 
 $conexion = mysqli_connect($server, $user, $pass, $db);
 /*
@@ -15,13 +15,13 @@ $componentesDb->crearTablaUsuario($conexion);
 $componentesDb->crearCategoria($conexion);
 $componentesDb->crearProveedor($conexion);
 $componentesDb->crearProducto($conexion);
-$componentesDb->crearVenta($conexion);
 $componentesDb->crearFactura($conexion);
-
+$componentesDb->crearVenta($conexion);
 */
+
 class CreacionBD{
     public function crearBD($conexion){
-        $sql = "CREATE DATABASE distribuidoraCesde";
+        $sql = "CREATE DATABASE distribuidora";
             if ($conexion->query($sql) === TRUE) {
                     echo "Base de datos creada!";
                 } else {
@@ -50,7 +50,7 @@ class CreacionBD{
         $sql = "CREATE TABLE TipoUsuario(
             idTipoUsuario int AUTO_INCREMENT,
             constraint PK_idTipoUsuario primary key(idTipoUsuario),
-            tipoUsuario varchar(45) not null
+            tipoUsuario varchar(45) UNIQUE
         )";
             if ($conexion->query($sql) === TRUE) {
                 echo "Tabla tipo usuario creada!";
@@ -62,7 +62,7 @@ class CreacionBD{
         $sql = "CREATE TABLE Categoria(
             idCategoria int AUTO_INCREMENT,
             constraint PK_idCategoria primary key(idCategoria),
-            nombreCategoria varchar(40) not null
+            nombreCategoria varchar(40) UNIQUE
         )";
             if ($conexion->query($sql) === TRUE) {
                     echo "Tabla categoria creada!";
@@ -80,7 +80,7 @@ class CreacionBD{
             telefonoProveedor numeric(15) not null
         )";
             if ($conexion->query($sql) === TRUE) {
-                echo "Tabla proveedor creada!";
+                echo "Tabla proveedor creada!";                
                 } else {
                     die("La tabla proveedor no pudo ser creada.". $conexion->error);
                         }
@@ -98,7 +98,7 @@ class CreacionBD{
 	        constraint FK_fkProveedor foreign key(fkProveedor) references proveedor(idProveedor)
         )";
             if ($conexion->query($sql) === TRUE) {
-                echo "Tabla producto creada!";
+                echo "Tabla producto creada!";                
                 } else {
                     die("La tabla producto no pudo ser creada.". $conexion->error);
                         }
@@ -115,7 +115,9 @@ class CreacionBD{
             fkVendedor int,
 	        constraint FK_fkVendedor foreign key(fkVendedor) references usuario(identificacion),
             fkCliente int,
-	        constraint FK_fkCliente foreign key(fkCliente) references usuario(identificacion)
+	        constraint FK_fkCliente foreign key(fkCliente) references usuario(identificacion),
+            fkFactura int,
+	        constraint FK_fkFactura foreign key(fkFactura) references factura(idFactura)
         )";
             if ($conexion->query($sql) === TRUE) {
                 echo "Tabla Venta creada!";
@@ -127,17 +129,14 @@ class CreacionBD{
         $sql = "CREATE TABLE Factura(
             idFactura int AUTO_INCREMENT,
             constraint PK_idFactura primary key(idFactura),
-            fecha date not null,
-            fkVenta int,
-	        constraint FK_fkVenta foreign key(fkVenta) references venta(idVenta)
+            fecha date not null
         )";
             if ($conexion->query($sql) === TRUE) {
-                echo "Tabla factura creada!";
+                echo "Tabla factura creada!";                
                 } else {
                     die("La tabla factura no pudo ser creada.". $conexion->error);
                         }
     }
-
 }
 
 
