@@ -49,7 +49,7 @@ class Venta {
         FROM venta v
         LEFT JOIN producto p ON v.fkProducto = p.idProducto
         LEFT JOIN usuario u ON v.fkCliente = u.identificacion
-        LEFT JOIN usuario uv ON v.fkVendedor = u.identificacion
+        LEFT JOIN usuario uv ON v.fkVendedor = uv.identificacion
     ";
 
     if(isset($_POST["boton"])){
@@ -62,8 +62,8 @@ class Venta {
                             FROM venta v
                             LEFT JOIN producto p ON v.fkProducto = p.idProducto
                             LEFT JOIN usuario u ON v.fkCliente = u.identificacion
-                            LEFT JOIN usuario uv ON v.fkVendedor = u.identificacion
-                            WHERE v.idVenta = '$$idVenta'";
+                            LEFT JOIN usuario uv ON v.fkVendedor = uv.identificacion
+                            WHERE v.idVenta = '$idVenta'";
                 break;
         default:
         break;   

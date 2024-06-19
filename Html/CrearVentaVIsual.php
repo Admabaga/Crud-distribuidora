@@ -3,32 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../Css/Estilo.css">
+    <title>Ventas</title>
 </head>
 <body>
+<nav class="navbar">
+    <ol>
+        <li><a href="RegistrousuarioVisual.php"> Usuarios </a></li>
+        <li><a href="CrearVentaVIsual.php"> Ventas </a></li>
+        <li><a href="CrearTipoUsuarioVisual.php"> Tipo Usuarios</a></li>
+        <li><a href="CrearProveedorVisual.php"> Proveedores </a></li>
+        <li><a href="CrearProductoVisual.php"> Productos </a></li>
+        <li><a href="CrearFacturaVisual.php"> Facturas </a></li>
+        <li><a href="CrearCategoriaVisual.php"> Categorias </a></li>
+    </ol>
+</nav>
+<main>
     <form action="" method="post">
-    <div class="buscarUsuarioId">
+    <div class="input-group">
+        <div class="RegistroVenta">
+            <h2>Registrar venta:</h2>
+            <br>
+            <input type="number" name="fkProducto" placeholder="Ingrese el producto">
+            <br><br>
+            <input type="number" name="fkVendedor" placeholder="Ingrese el vendedor">
+            <br><br>
+            <input type="number" name="fkCLiente" placeholder="Ingrese identificacion del cliente">
+            <br><br>
+            <input type="number" name="cantidad" placeholder="Ingrese cantidad del producto">
+            <br><br>
+            <input type="submit" name="boton" value="Registrar">
+        </div>
+        <div class="ActualizarVenta">
+            <h2>Actualizar venta:</h2>
+            <br>
+            <input type="number" name="idActualizarVenta" placeholder="Ingrese id de la venta">
+            <br><br>
+            <input type="number" name="actualizarVendedor" placeholder="Ingrese vendedor">
+            <br><br>
+            <input type="number" name="actualizarCliente" placeholder="Ingrese el cliente">
+            <br><br>
+            <input type="number" name="actualizarCantidad" placeholder="Ingrese cantidad">
+            <br><br>
+            <input type="number" name="actualizarProducto" placeholder="Ingrese producto">
+            <br><br>
+            <input type="submit" value="Actualizar">
+
+        </div>
+
+    </div>
+    <div class="input-group">
+        <div class="EliminarVenta">
+            <h2>Eliminar venta:</h2>
+            <br>
             <input type="number" name="idVentaEliminar" placeholder="Ingrese id venta">
             <br><br>
             <input type="submit" name="boton" value="Eliminar">
             <br><br>
-    </div>
-    <div class="buscarVentaId">
+        </div>
+        <div class="BuscarVentaId">
+            <h2>Buscar venta por id:</h2>
+            <br>
             <input type="number" name="idVenta" placeholder="Ingrese id de la venta">
             <br><br>
             <input type="submit" name="boton" value="Buscar">
             <br><br>
+        </div>
     </div>
-        <input type="number" name="fkProducto" placeholder="Ingrese el producto">
-        <br><br>
-        <input type="number" name="fkVendedor" placeholder="Ingrese el vendedor">
-        <br><br>
-        <input type="number" name="fkCLiente" placeholder="Ingrese identificacion del cliente">
-        <br><br>
-        <input type="number" name="cantidad" placeholder="Ingrese cantidad del producto">
-        <br><br>
-        <input type="submit" name="boton" value="Registrar">
+
+   
     </form>
+</main>
     <?php
     include '../Logica/CrearVenta.php';
     ?>

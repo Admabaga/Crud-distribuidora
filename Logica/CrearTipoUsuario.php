@@ -10,10 +10,10 @@ class registrarTipoUsuario{
     public function crearTipoUsuarioEnDb($conexion){
         if(isset($_POST["boton"])){
             switch($_POST["boton"]){
-                case 'Registrar':
+                case 'Guardar':
                         if(strlen(trim($_POST["tipoUsuario"])) >= 1 ){
                             $tipoUsuario = trim($_POST["tipoUsuario"]);
-                            $sql = "INSERT INTO tipoUsuario
+                            $sql = "INSERT INTO TipoUsuario
                                         (tipoUsuario) VALUES
                              ('$tipoUsuario')";
                             $resultado = mysqli_query($conexion, $sql);
@@ -55,7 +55,7 @@ class registrarTipoUsuario{
             }
             $output.= "</table>";
         } else {
-            $output = "No hay usuarios disponibles.";
+            $output = "No hay tipos de usuarios disponibles.";
         }
         echo $output;
    

@@ -1,0 +1,126 @@
+body{
+ /* background-image: url('../Img/sweden-2731126_1280.jpg');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ccc;
+ }
+
+ nav {
+  margin-top: 150px;
+ }
+
+ .navbar ol {
+  display: flex;
+  justify-content: space-around;
+  background-color: #7c6c6c;
+  height: 30px;
+  list-style-type: none; /* Elimina los marcadores predeterminados */
+  margin: 0px; /* Remueve los márgenes predeterminados */
+  padding: 23px; 
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 30px;
+  width: 100%;
+}
+
+
+.navbar li a:hover {
+  color: #a39906; 
+  background-color: #413a3a;
+}
+
+@media (max-width: 600px) {
+.navbar ol {
+      flex-direction: column;
+      align-items: center;
+  }
+
+.navbar li a {
+      margin-bottom: 15px;
+  }
+}
+
+/* Estilos generales */
+main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    max-width: 600px; /* Ajusta según sea necesario */
+}
+
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Espacio entre grupos de inputs */
+    border-radius: 5%;
+
+}
+
+input[type="number"], input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 230px;
+    border-radius: 5px;
+    margin-right: 15px; /* Espacio entre inputs en el mismo grupo */
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+table {
+  border-collapse: collapse;
+  width: auto; 
+  margin-left: 25%;
+  margin-bottom: 10%;
+  background-color: #333; /* Fondo oscuro para toda la tabla */
+  color: #fff; /* Texto blanco sobre el fondo oscuro */
+}
+
+th, td {
+  border: 2px solid #3b3b3b; /* Borde oscuro */
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #1b1b1b; 
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #444; 
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #555; 
+}
+
+h2 {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 22px; 
+    color: #bebcbc; 
+    line-height: 1.5; 
+  }
+
+
