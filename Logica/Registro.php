@@ -5,6 +5,7 @@ $usuario = new Usuario();
 $usuario->crearUsuarioEnDb($conexion);
 $usuario->traerusuarios($conexion);
 $usuario->eliminarUsuarioDb($conexion);
+$usuario->actualizarUsuario($conexion);
 class Usuario {
     public function crearUsuarioEnDb($conexion) {
         if(isset($_POST["boton"])){
@@ -114,6 +115,42 @@ class Usuario {
             }
         }
 
+    }
+    public function actualizarUsuario($conexion) {
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Actualizar':
+                    $id = trim($_POST["idActualizarUsuario"]); // Corrección aquí
+                    $nombreUsuario = trim($_POST["actualizarNombreUsuario"]);
+                    $apellidoUsuario = trim($_POST["actualizarApellido"]);
+                    $correoElectronico = trim($_POST["actualizarEmail"]);
+                    $telefono = trim($_POST["actualizarTelefono"]);
+                    $password = trim($_POST["actualizarPassword"]); // Asumiendo que quieres usar esta contraseña
+                    $fkTipoUsuario = trim($_POST["actualizarTipoUsuario"]);
+                    
+                    // Definir las variables que faltaban
+                    $clave = $password; // Debes decidir qué hacer con la contraseña
+                    $telefonoUsuario = $telefono;
+                    $correoElectronicoUsuario = $correoElectronico;
+                    $identificacion = $id; // Asegúrate de que $id es un número
+                    
+                    $sql = "UPDATE usuario SET 
+                    nombreUsuario=?, apellidoUsuario=?, clave=?, telefonoUsuario=?,
+                        correoElectronicoUsuario=?, fkTipoUsuario=? WHERE identificacion =?";
+                    $resultado = mysqli_prepare($conexion, $sql);
+                    mysqli_stmt_bind_param($resultado, "sssisii", $nombreUsuario, $apellidoUsuario, $clave, $telefonoUsuario, $correoElectronicoUsuario, $fkTipoUsuario, $identificacion); // Corrección aquí
+                    $ejecutar= mysqli_stmt_execute($resultado);
+                    if ($ejecutar === TRUE) {
+                        echo "<script>
+                        alert('Usuario actualizado!');
+                        </script>";
+                    } else {
+                        die("No se puede actualizar usuario: ". mysqli_error($conexion));
+                    }
+                }   
+            
+                }
+           
     }
 }
 

@@ -4,37 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/Estilo.css">
+    <link rel="icon" href="../Img/Valknut.svg.png" type="image/png">
     <title>Proveedores</title>
 </head>
 <body>
 <div class="boton-externo">
     <button onclick="window.location.href='redireccion.php';">Cerrar sesion</button>
 </div>
-<style>
-.boton-externo {
-    position: absolute;
-    top: 10px; 
-    right: 10px; 
-    z-index: 1000; 
-}
-
-.boton-externo button {
-    background-color: #007bff; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 10px;
-    font-size: 12px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
-}
-
-.boton-externo button:hover {
-    background-color: #007bff; 
-}
-
-
-    </style>
+  
 <script>
 
 document.querySelector('.boton-externo button').addEventListener('click', function() {

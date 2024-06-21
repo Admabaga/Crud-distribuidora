@@ -1,5 +1,6 @@
 body{
-  background-image: url('../Img/sweden-2731126_1280.jpg');
+ /* background-image: url('../Img/sweden-2731126_1280.jpg');*/
+ background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center; 
@@ -164,3 +165,31 @@ h2 {
     color: #bebcbc; 
     line-height: 1.5; 
   }
+
+  .boton-externo {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    z-index: 1000; 
+}
+
+.boton-externo img {
+  filter: invert(0.4) sepia(1) hue-rotate(20deg) saturate(1000%);
+  
+}
+
+.boton-externo button {
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 10px;
+    font-size: 12px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.boton-externo button:hover {
+    background-color: #0a532f; 
+}

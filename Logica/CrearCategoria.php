@@ -86,6 +86,29 @@ class registrarCategoria{
         }
 
     }
+    public function actualizarCategoriaEnBd($conexion){
+        if(isset($_POST["boton"])){
+            switch($_POST["boton"]){
+                case 'Actualizar':
+                    if(strlen(trim($_POST["nombreCategoriaActualizar"])) >= 1 ){
+                        $categoriaNombre = trim($_POST["nombreCategoria"]);
+                        $id = trim($_POST["idCategoriaActualizar"]);
+                        $sql = "UPDATE categoria SET nombreCategoria =? WHERE idCategoria ='$id'";
+                        $resultado = mysqli_query($conexion, $sql);
+                        $stmt = $conexion->prepare($sql);
+                        $stmt->bind_param('si', $categoriaNombre, $id); // 'si' significa que el primer parámetro es un string y el segundo es un entero
+                        $stmt->execute();
+                        if ($resultado === TRUE) {
+                            echo "<script>
+                            alert('Categoria registrada!');
+                            </script>";
+                        } else {
+                            die("No se puede crear la categoria.". $conexion->error);
+                                }
+                }            
+            }
+        }
+    }
 }
 
 
